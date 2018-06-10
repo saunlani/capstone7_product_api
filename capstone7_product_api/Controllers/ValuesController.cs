@@ -88,15 +88,18 @@ namespace capstone7_product_api.Controllers
             return Products;
         }
 
+
+
+        [HttpGet]
         [Route("{api}/Supplier")]
         public List<Product> Supplier(int id)
         {
             NORTHWNDEntities db = new NORTHWNDEntities();
             List<Product> Products = db.Products.ToList();
-            List<Product> SupplierIDList = (from p in db.Products
+            List<Product> SupIDList = (from p in db.Products
                                        where p.SupplierID == id
                                        select p).ToList();
-            return SupplierIDList;
+            return SupIDList;
         }
 
         [HttpGet]
@@ -107,6 +110,8 @@ namespace capstone7_product_api.Controllers
             List<Product> Products = db.Products.ToList();
             return Products;
         }
+
+
         //NORTHWNDEntities db = new NORTHWNDEntities();
         //List<Product> Products = db.Products.ToList();
         //Product Result = null;
